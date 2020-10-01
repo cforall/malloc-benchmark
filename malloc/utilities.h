@@ -38,11 +38,11 @@ void end_ipc();
 unsigned long long get_cur_time_ms(int print);
 
 /*
-	parse_proc_maps reads file given by fname as a proc/pid/maps file and populates fields of T_memory_snapshot defined in common/dataStructures.h
-	input: a char* string (name of file to be read and parsed, /proc/self/maps to read a process's own memory mappings)
+	parse_proc_maps reads maps file of process by given pid as proc/pid/maps and populates fields of T_memory_snapshot defined in common/dataStructures.h
+	input: an int (pid of process whose maps file is to be read and parsed, -1 for self)
 	output: a variable of type T_memory_snapshot
 	effects: may print error message(s)
 */
-T_memory_snapshot parse_proc_maps(char* fname);
+T_memory_snapshot parse_proc_maps(const int pid);
 
 #endif
